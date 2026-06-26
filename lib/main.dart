@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'pages/home_page.dart';
 import 'pages/login_page.dart';
 
@@ -27,12 +28,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         primarySwatch: Colors.blue,
+        // Use GoogleFonts to set the default text theme for the app
+        textTheme: GoogleFonts.latoTextTheme(),
       ),
 
       // Dark Theme
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         primarySwatch: Colors.blue,
+        // Use GoogleFonts to set the default text theme for the app
+        textTheme: GoogleFonts.latoTextTheme(),
       ),
 
       // First screen displayed when app starts
