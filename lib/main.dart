@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       ),
 
       // First screen displayed when app starts
-      home: LoginPage(),
+      home: HomePage(),
 
       // Define routes for navigation
       routes: {
