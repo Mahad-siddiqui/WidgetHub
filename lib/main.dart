@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:widgethub/utils/routes.dart';
 import 'pages/home_page.dart';
 import 'pages/login_page.dart';
+import 'package:widgethub/utils/theme.dart';
 
 void main() {
   // Entry point of the application
@@ -26,20 +27,10 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
 
       // Light Theme
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.blue,
-        // Use GoogleFonts to set the default text theme for the app
-        textTheme: GoogleFonts.latoTextTheme(),
-      ),
+      theme: MyTheme.lightTheme,
 
       // Dark Theme
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.blue,
-        // Use GoogleFonts to set the default text theme for the app
-        textTheme: GoogleFonts.latoTextTheme(),
-      ),
+      darkTheme: MyTheme.darkTheme,
 
       // First screen displayed when app starts
       home: HomePage(),

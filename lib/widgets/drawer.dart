@@ -1,34 +1,35 @@
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
+  const MyDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final imageUrl =
-        "https://example.com/user_profile_image.png"; // Replace with your image URL
+    const imageUrl =
+        'https://example.com/user_profile_image.png'; // Replace with a valid image URL
+
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(color: Colors.purple),
-            child: UserAccountsDrawerHeader(
-              accountName: Text('User Name'),
-              accountEmail: Text('user@example.com'),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage(imageUrl),
-              ),
+        children: [
+          UserAccountsDrawerHeader(
+            decoration: const BoxDecoration(color: Colors.purple),
+            accountName: const Text('User Name'),
+            accountEmail: const Text('user@example.com'),
+            currentAccountPicture: const CircleAvatar(
+              backgroundImage: NetworkImage(imageUrl),
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home, color: Colors.purple),
-            title: Text('Home'),
+            leading: const Icon(Icons.home, color: Colors.purple),
+            title: const Text('Home'),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            leading: Icon(Icons.settings, color: Colors.purple),
-            title: Text('Settings'),
+            leading: const Icon(Icons.settings, color: Colors.purple),
+            title: const Text('Settings'),
             onTap: () {
               Navigator.pop(context);
             },
