@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:widgethub/modules/catelog.dart';
 import 'package:widgethub/pages/home_details_page.dart';
+import 'package:widgethub/utils/routes.dart';
+import 'package:widgethub/utils/theme.dart';
 import 'package:widgethub/widgets/drawer.dart';
 import 'package:widgethub/widgets/item_widget.dart';
 
@@ -44,6 +46,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, MYRoutes.cardRoute);
+        },
+        backgroundColor: MyTheme.lightTheme.primaryColor,
+        shape: const CircleBorder(),
+        child: const Icon(Icons.shopping_cart, color: Colors.white),
+      ),
       drawer: const MyDrawer(),
       appBar: AppBar(title: const Text("Widget Hub")),
       body: isLoading
@@ -98,17 +108,59 @@ class _HomePageState extends State<HomePage> {
                               textAlign: TextAlign.center,
                             ),
                           ),
-
                           footer: Container(
                             color: const Color.fromARGB(137, 48, 22, 58),
                             padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              "\$${item.price.toStringAsFixed(2)}",
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              textAlign: TextAlign.center,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "\$${item.price.toStringAsFixed(2)}",
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                const SizedBox(height: 4),
+                                GestureDetector(
+                                  onTap: () {
+                                    // Show snackbar when Add to Cart is clicked
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          '${item.name} added to cart!',
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        backgroundColor: Colors.purple,
+                                        duration: const Duration(seconds: 2),
+                                        behavior: SnackBarBehavior.floating,
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 12,
+                                      vertical: 4,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.purple,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: const Text(
+                                      "Add to Cart",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 11,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           child: Hero(

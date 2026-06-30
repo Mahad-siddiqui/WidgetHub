@@ -125,10 +125,14 @@ class _LoginPageState extends State<LoginPage> {
                                   const Duration(milliseconds: 700),
                                 );
 
+                                if (!mounted) return;
+
                                 await Navigator.pushNamed(
                                   context,
                                   MYRoutes.homeRoute,
                                 );
+
+                                if (!mounted) return;
 
                                 setState(() {
                                   changeButton = false;

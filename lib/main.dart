@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:widgethub/utils/routes.dart';
+import 'pages/card_page.dart';
 import 'pages/home_page.dart';
 import 'pages/login_page.dart';
 import 'package:widgethub/utils/theme.dart';
@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
       routes: {
         MYRoutes.homeRoute: (context) => HomePage(),
         MYRoutes.loginRoute: (context) => const LoginPage(),
+        MYRoutes.cardRoute: (context) => const CardPage(),
         '/unknown': (context) =>
             const Scaffold(body: Center(child: Text('Unknown Route'))),
       },
