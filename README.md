@@ -1,6 +1,6 @@
 # widgethub
 
-A new Flutter project.
+A new Flutter catalog App project.
 
 ## Getting Started
 
